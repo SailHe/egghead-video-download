@@ -51,6 +51,14 @@ let a=[];document.querySelectorAll('.playlist-lessons-list a').forEach(l => a.pu
 
 ```javascript
 document.querySelectorAll('.playlist-lessons-list a').forEach(l => console.dir(l.href))
+
+上述语句已失效, 使用:
+var playlist = []; document.querySelectorAll('li a.flex').forEach(l => {if(l.children[1].children[1].children.length < 3) playlist.push(l.href); else console.log('锁住的:' + l.href); });
+var lockPlaylist = []; document.querySelectorAll('li .flex.mr2').forEach(l => {console.log(l.parentElement.parentElement.parentElement.href);});
+copy(playlist.join('\n'));
+
+// 结果直接存在与剪切板
+
 ```
 
 The tip to use [console.dir()](https://developer.mozilla.org/en-US/docs/Web/API/Console/dir) came from [tucq88](https://github.com/tucq88) who run in some issues with to long URL's which Chrome shorten via "...".
